@@ -1,25 +1,30 @@
 class Stack:
+    """
+    Array Implementation of a Stack Data Structure
+    """
     def __init__(self):
-        self.items = []
+        self.stack_array = []
 
     def __len__(self):
-        return len(self.items)
+        return len(self.stack_array)
 
     def __bool__(self):
-        return bool(self.items)
+        return bool(self.stack_array)
 
     def clear(self):
-        self.items = []
+        self.stack_array = []
 
     def push(self, item):
-        self.items.append(item)
+        self.stack_array.append(item)
 
     def pop(self):
-        if not self.items:
+        if self.stack_array:
+            return self.stack_array.pop()
+        else:
             raise IndexError("pop from empty stack")
-        return self.items.pop()
 
     def peek(self):
-        if not self.items:
-            raise IndexError("peek from empty stack")
-        return self.items[-1]
+        if self.stack_array:
+            return self.stack_array[-1]
+        else:
+            return None
